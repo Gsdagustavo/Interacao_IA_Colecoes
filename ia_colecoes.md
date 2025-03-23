@@ -47,3 +47,27 @@ Evitar operações que modifiquem a lista durante a iteração: Alterar uma list
 Analisar e otimizar o uso de memória: Listas muito grandes podem consumir muita memória. Se você estiver lidando com dados grandes, considere dividir o processamento ou usar outras estratégias de gerenciamento de memória, como streams ou processamento em partes (chunking).
 
 Adotar essas práticas ajudará a melhorar o desempenho e a escalabilidade de seu código Dart ao lidar com listas.
+
+Ao usar listas em Dart, algumas práticas não são recomendadas, pois podem afetar a performance, legibilidade ou até causar erros no código. Aqui estão algumas delas:
+
+Modificar listas enquanto itera sobre elas: Modificar uma lista durante a iteração (como adicionar ou remover elementos) pode causar comportamentos inesperados, como índices incorretos ou alterações no tamanho da lista enquanto ela está sendo percorrida. Isso pode levar a erros de execução ou resultados incorretos.
+
+Usar List<dynamic> sem necessidade: O uso de List<dynamic> pode comprometer a segurança do tipo e diminuir a legibilidade do código. Sempre que possível, use listas tipadas, como List<int> ou List<String>, para garantir que o código seja mais seguro e fácil de entender.
+
+Adicionar elementos a uma lista grande dentro de loops: Usar add() repetidamente dentro de loops pode ser ineficiente, pois o Dart pode precisar realocar a lista cada vez que ela atinge sua capacidade máxima. Isso pode afetar negativamente a performance, especialmente quando se trabalha com listas grandes.
+
+Criar listas repetidamente dentro de funções: Criar novas listas em cada chamada de função (em vez de reutilizar ou modificar listas existentes) pode resultar em sobrecarga de memória e degradação de performance, especialmente em cenários de alto desempenho.
+
+Usar índices diretamente sem validação: Acessar índices diretamente sem garantir que o índice está dentro dos limites da lista pode causar erros de índice fora do intervalo (IndexOutOfRangeError). Sempre valide os índices antes de acessá-los.
+
+Misturar listas mutáveis e imutáveis sem controle: Misturar listas que podem ser modificadas (mutáveis) com listas imutáveis pode causar confusão e tornar o código difícil de entender. Tenha clareza sobre quando e por que você está usando listas mutáveis ou imutáveis.
+
+Usar listas para casos em que outras coleções são mais apropriadas: Listas não são a estrutura de dados mais eficiente para todos os tipos de problemas. Para casos de busca rápida, você deve considerar o uso de Set ou Map, que oferecem melhores tempos de acesso em algumas situações.
+
+Não utilizar métodos de coleção quando possível: Usar loops tradicionais (for, while) para manipular listas, quando métodos de coleção como map(), filter(), reduce() e outros são mais eficientes e legíveis, pode tornar o código mais complexo e difícil de manter.
+
+Não se preocupar com a performance ao lidar com listas grandes: Quando se trabalha com grandes volumes de dados, não considerar a performance e o uso de memória ao manipular listas pode levar a problemas de escalabilidade. Técnicas como o uso de listas imutáveis, inicialização eficiente e manipulação de dados em blocos (chunking) podem melhorar o desempenho.
+
+Não utilizar listas para armazenar dados altamente estruturados: Para dados complexos ou muito estruturados, uma lista pode não ser a melhor escolha. Prefira usar Map ou outras coleções que melhor se adequem à natureza dos dados.
+
+Evitar essas práticas ajudará a escrever código mais eficiente, seguro e fácil de manter ao trabalhar com listas em Dart.
