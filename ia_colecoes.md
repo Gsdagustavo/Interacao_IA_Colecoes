@@ -296,3 +296,19 @@ Ao usar **sets** em Dart, existem alguns cuidados importantes que você deve lev
    - Se seu objetivo principal é garantir que os elementos em uma coleção sejam **únicos**, então um **set** é a estrutura de dados ideal. No entanto, se você precisa de uma coleção ordenada com elementos exclusivos, um **`LinkedHashSet`** ou **`SortedSet`** (se disponível) seria mais apropriado.
 
 Seguir esses cuidados ao usar **sets** pode melhorar a qualidade, a segurança e a eficiência do seu código em Dart, garantindo que você aproveite ao máximo essa estrutura de dados.
+
+• Traga a documentação do método elementAtOrNull. 
+R:
+
+O método **`elementAtOrNull`** é uma extensão da biblioteca `dart:collection` e faz parte das operações de coleções no Dart. Ele permite acessar um elemento em um índice específico de um **Iterable**, como uma lista ou um conjunto, mas, ao contrário do método `elementAt`, que lança um erro caso o índice esteja fora dos limites, o **`elementAtOrNull`** retorna `null` se o índice não for válido.
+
+### Características:
+- **Segurança contra erros**: Se o índice fornecido estiver fora do alcance da coleção, ao invés de lançar uma exceção, o método simplesmente retorna `null`.
+- **Uso comum**: É útil quando você precisa acessar um elemento de forma segura, sem se preocupar com exceções ao acessar índices inválidos.
+
+### Importante:
+- Para utilizar o método, é necessário importar a biblioteca `dart:collection`.
+- O índice fornecido deve ser **não negativo**.
+- Ele funciona bem em coleções como listas e conjuntos.
+
+Esse método facilita o manuseio de coleções ao acessar elementos de maneira mais robusta, sem a necessidade de capturar exceções quando os índices são inválidos.
